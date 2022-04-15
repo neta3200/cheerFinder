@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: black;
+}
+
+.split {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  width: 85%;
+  background-color: #111;
+}
+
+.right {
+  right: 0;
+  width: 15s%;
+  background-color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+#rcorners1 {
+  border-radius: 25px;
+  background: #82002e;
+  padding: 20px; 
+  width: 200px;
+  height: 40px;
+  border: 2px solid black;   
+}
+#rcorners2 {
+  border-radius: 25px;
+  background: #ffffff;
+  padding: 20px; 
+  width: 150x;
+  height: 400px;
+  border: 2px solid black;  
+}
+
+</style>
+</head>
+<body>
+
+<div class="split left">
+    <img src="mapexample.png" alt="map">
+  </div>
+</div>
+
+<div class="split right">
+  
+    <p id="rcorners1">הרשמה/התחברות לבעלי חנויות</p>
+	<p id="rcorners1">הרשמה/התחברות למשתמשים</p>
+	<p id="rcorners2"> <h1> מסנני חיפוש</h1>
+
+		</p>
+    #div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+  </div>
+</div>
+     
+</body>
+</html> 
