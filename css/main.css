@@ -39,19 +39,7 @@ body {
   width: 150px;
   border-radius: 50%;
 }
-/*
-.button {
-  background-color: #ddd;
-  border: none;
-  color: black;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 16px;
-} */
+
 .smallButton{
   width: 100px;
   height: 50px;
@@ -107,15 +95,3 @@ body {
   margin: 20px
 }
 #spacer {height:50px;}
-div.container4 {
-    height: 10em;
-    position: relative }
-div.container4 p {
-    margin: 0;
-    background: yellow;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) }
-
