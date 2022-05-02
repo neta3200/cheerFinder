@@ -1,4 +1,4 @@
-var storesJson= {
+var jsonStores= {
     "type": "FeatureCollection",
     "name": "Hotels_1",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },

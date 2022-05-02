@@ -22,12 +22,13 @@
 }
 </style>
 
-
+<title>Cheers Finder</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.png">
 
 </head>
 <body>
   <div id="logoContainer">
-    <img style="border:transparent;" src="images/logo2.png">
+    <img style="border:transparent;" src="images/logo4.png">
   </div>
   
 <div class="split left">
@@ -47,7 +48,7 @@
     <script>
     var map = L.map('map', {
         zoomControl:true, maxZoom:28, minZoom:1
-    }).fitBounds([[-82.80498552184311,-174.5132040565431],[82.80498552184315,174.5132040565432]]);
+    }).fitBounds([[32.06,34.75],[32.09,34.79]]);
     var hash = new L.Hash(map);
     map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
     var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -71,6 +72,29 @@
     var layerGroup = L.layerGroup([coordinates]);
     layerGroup.addTo(map);
 
+
+
+    map.createPane('paneStores');
+    map.getPane('paneStores').style.zIndex = 401;
+    map.getPane('paneStores').style['mix-blend-mode'] = 'normal';
+    var layerStores = new L.geoJson(jsonStores,{
+      attribution: '',
+            interactive: true,
+            dataVar: 'jsonStores',
+            layerName: 'layerStores',
+            pane: 'paneStores',
+            onEachFeature: pop_Hotels_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+				return L.marker(latlng, style_Hotels_1_0(feature));
+
+    },
+  });
+  bounds_group.addLayer(layerStores);
+  map.addLayer(layerStores);
 
 
     </script>
