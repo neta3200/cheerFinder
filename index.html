@@ -73,6 +73,41 @@
     layerGroup.addTo(map);
 
 
+    // Styles:
+
+    function style_Stores() {
+            return {
+                pane: 'paneStores',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/marker.svg',
+            iconSize: [34.199999999999996, 34.199999999999996]
+        }),
+                interactive: true,
+            }
+        }
+
+        function style_Stores() {
+            return {
+                pane: 'paneStores',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(50,87,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,46,182,1.0)',
+                interactive: true,
+            }
+        }
+
+        // End Styles
+
+
 
     map.createPane('paneStores');
     map.getPane('paneStores').style.zIndex = 401;
@@ -89,7 +124,7 @@
                     feature: feature,
                     variables: {}
                 };
-				return L.marker(latlng, style_Hotels_1_0(feature));
+				return L.marker(latlng, style_Stores(feature));
 
     },
   });
