@@ -13,6 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="css/leaflet.css">
 <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+<link rel="stylesheet" href="css/StarRating.css">
 <style>
 #map {
   width: 100%;
@@ -44,62 +45,16 @@
     <script src="js/rbush.min.js"></script>
     <script src="js/labelgun.min.js"></script>
     <script src="js/labels.js"></script>
+    <script src="js/tailDT.js"></script>
+<script src="js/StarRating.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
     <script src="data/stores.js"></script>
-    <script> 
-    var map = L.map('map', {
-        zoomControl:true, maxZoom:28, minZoom:1
-    }).fitBounds([[32.06,34.75],[32.09,34.79]]);
-    var hash = new L.Hash(map);
-    map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-    var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-    var bounds_group = new L.featureGroup([]);
-    function setBounds() {
-    }
-    map.createPane('pane_OSMStandard_0');
-    map.getPane('pane_OSMStandard_0').style.zIndex = 400;
-    var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        pane: 'pane_OSMStandard_0',
-        opacity: 1.0,
-        attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
-        minZoom: 1,
-        maxZoom: 28,
-        minNativeZoom: 0,
-        maxNativeZoom: 19 
-    });
-    layer_OSMStandard_0;
-    map.addLayer(layer_OSMStandard_0);
-    setBounds();
-    var layerGroup = L.layerGroup([coordinates]);
-    layerGroup.addTo(map);
-
-
-
-    map.createPane('paneStores');
-    map.getPane('paneStores').style.zIndex = 401;
-    map.getPane('paneStores').style['mix-blend-mode'] = 'normal';
-    var layerStores = new L.geoJson(jsonStores,{
-      attribution: '',
-            interactive: true,
-            dataVar: 'jsonStores',
-            layerName: 'layerStores',
-            pane: 'paneStores',
-            onEachFeature: pop_Hotels_1,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-				return L.marker(latlng, style_Hotels_1_0(feature));
-
-    },
-  });
-  bounds_group.addLayer(layerStores);
-  map.addLayer(layerStores);
-
-
-    </script>
-    
-  </div>
+<div id="rateYo"></div>
+<script src="jquery.js"></script>
+<script src="jquery.rateyo.js"></script>
+<!-- load map and hotels, present hotels tooltips -->
+    <script src="js/map1.js"></script>
 
 </div>
 
@@ -108,7 +63,9 @@
   <p id="dateSideBar"></p>
   <script>
     const today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes();
+    var minutes=today.getMinutes()
+    minutes = minutes > 9 ? minutes : '0' + minutes;
+    var time = today.getHours() + ":" + minutes;
     document.getElementById("dateSideBar").innerHTML = time;
     document.getElementById("dateSideBar").style.fontWeight = 'bold';
   </script>
@@ -141,7 +98,6 @@
     <button class="buttonRectangle smallButton">אפס סינונים</button>
   </div>
 		</p>
-
   </div>
 </div>
      
