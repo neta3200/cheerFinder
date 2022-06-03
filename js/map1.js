@@ -88,11 +88,14 @@ map.on('popupopen', function(e) {
 
 function paint_stars(rank) {
     var i;
+    rank = Math.round(rank);
     text= "";
     for (i=rank; i<5; i++)
-        text += ('<span class="fa fa-star"></span>');
+        //text += ('<span class="fa fa-glass"></span>');
+        text+= ('<img src="/images/EmptyGlass.png" height = 20 class="Rating--Glass Rating--Glass__active">');
     for (i=0; i<rank; i++)
-        text += ('<span class="fa fa-star checked"></span>');
+        //text += ('<span class="fa fa-glass checked"></span>');
+        text+= ('<img src="/images/FullGlass.png" height = 20 class="Rating--Glass ">');
     return text;
 }
 

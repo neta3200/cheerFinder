@@ -96,3 +96,10 @@ body {
 }
 #spacer {height:50px;}
 
+.checked {
+  color: #E24E4E;
+}
+.Rating--Glass {
+  filter: grayscale(100%); // maybe we want stars to become grey if inactive
+  opacity: .3; // maybe we want stars to become opaque
+}
