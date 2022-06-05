@@ -12,5 +12,5 @@ x-star-rating > .star::after {
 
 x-star-rating > .star.full::after {
     content: '\f2fc';
-    color: #fd0;
+    color: rgb(255, 0, 21);
 }
