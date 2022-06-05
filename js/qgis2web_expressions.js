@@ -759,8 +759,8 @@ function fnc_project_color(values, context) {
 function exp_label_Stores_eval_expression(context) {
     var feature = context.feature;
     if (feature.properties) {
-       return (feature.properties['Name'] + '<br>' + feature.properties['price']  + '₪');
+       return (feature.properties['Name'] + '<br>' + feature.properties['stars']  + ' stars');
     } else {
-       return (feature['Name'] + '<br>' + feature['price']  + '₪');
+       return (feature['Name'] + '<br>' + feature['stars']  + ' stars');
     }
 }

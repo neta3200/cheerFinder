@@ -129,9 +129,13 @@ function style_Stores_1_0() {
         interactive: true,
     }
 }
+
 map.createPane('pane_Stores_1');
 map.getPane('pane_Stores_1').style.zIndex = 401;
 map.getPane('pane_Stores_1').style['mix-blend-mode'] = 'normal';
+
+
+
 var layer_Stores_1 = new L.geoJson(json_Stores_1, {
     attribution: '',
     interactive: true,
