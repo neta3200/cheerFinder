@@ -756,7 +756,7 @@ function fnc_project_color(values, context) {
 };
 
 
-function exp_label_Stores_eval_expression(context) {
+function exp_label_Stores_1_eval_expression(context) {
     var feature = context.feature;
     if (feature.properties) {
        return (feature.properties['Name'] + '<br>' + feature.properties['stars']  + ' stars');
@@ -764,3 +764,13 @@ function exp_label_Stores_eval_expression(context) {
        return (feature['Name'] + '<br>' + feature['stars']  + ' stars');
     }
 }
+
+//text for tooltip
+/* function exp_label_Hotels_1_eval_expression(context) {
+    var feature = context.feature;
+    if (feature.properties) {
+       return (feature.properties['Name'] + '<br>' + feature.properties['price']  + '₪');
+    } else {
+       return (feature['Name'] + '<br>' + feature['price']  + '₪');
+    }
+} */
