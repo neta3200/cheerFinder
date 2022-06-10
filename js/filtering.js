@@ -203,13 +203,12 @@ onspot_checkbox.onchange = function(){
 };
 /* div_open.appendChild(sel_onspot); */
 div_onspot.appendChild(sel_onspot);
+
+
 //label
 var onspot_label = document.createElement('label').appendChild(document.createTextNode('אפשרות קניה במקום'));
 document.getElementById('menu').appendChild(onspot_label);
 // ------------------------------------- //
-
-
-
 
 ////---- order pickup - filter ---- /////
 document.getElementById("menu").appendChild(document.createElement("div"));
@@ -316,7 +315,7 @@ var btnResetFilters = document.createElement("BUTTON");
 btnResetFilters.innerHTML = "אפס סינונים";
 btnResetFilters.style.borderRadius = "12px";
 btnResetFilters.style.color = "White";
-btnResetFilters.style.backgroundColor="#3FB8AF";
+btnResetFilters.style.backgroundColor="#82002e";
 btnResetFilters.style.height="35px";
 btnResetFilters.style.width="150px";
 btnResetFilters.style.margin="20px 20px";
@@ -324,6 +323,8 @@ btnResetFilters.style.borderColor ="transparent";
 document.getElementById("menu").appendChild(btnResetFilters);
 btnResetFilters.style.fontSize="23px";
 btnResetFilters.style.fontFamily = "Calibri Light";
+btnResetFilters.onmouseover = function () {btnResetFilters.style.backgroundColor="#E24E4E";}
+btnResetFilters.onmouseleave = function () {btnResetFilters.style.backgroundColor="#82002e";}
 btnResetFilters.onclick = function() {
 	//reset open
 	/* open_checkbox.checked = false;

@@ -68,9 +68,9 @@ var map = L.map('map', {
                 <td colspan="1">דירוג: ' + paint_glasses(feature.properties['glasses']) + '</td>\
                 </tr>\
                 <tr>\
-                    <td  align="right" width=200>'+  (feature.properties['onspot'] !== null ? autolinker.link(feature.properties['onspot'].toLocaleString()):'') + ' קנייה במקום </td>\
-                    <td  align="right" width=200>'+ (feature.properties['pickup'] !== null ? autolinker.link(feature.properties['pickup'].toLocaleString()):'') + ' איסוף הזמנה </td>\
-                    <td  align="right" width=200>'+ (feature.properties['shipping'] !== null ? autolinker.link(feature.properties['shipping'].toLocaleString()):'') + ' משלוח</td>\
+                    <td  align="right" width=200>'+  (check_x_mark(feature.properties['onspot'])) + ' קנייה במקום </td>\
+                    <td  align="right" width=200>'+ (check_x_mark(feature.properties['pickup'])) + ' איסוף הזמנה </td>\
+                    <td  align="right" width=200>'+ (check_x_mark(feature.properties['shipping'])) + ' משלוח</td>\
                 </tr>\
             </table></div>';
         layer.bindPopup(popupContent, {maxWidth: 'auto'});
@@ -86,16 +86,24 @@ var map = L.map('map', {
         map.panTo(map.unproject(px),{animate: true});
     });
 
+    function check_x_mark(option){
+        if(option == "yes")
+            return "<img src=\"images/CheckSymbol.png\" height=20>"
+        else
+            return "<img src=\"images/xmark.png\" height=20>"
+
+    }
+
     function paint_glasses(rank) {
         var i;
         rank = Math.round(rank);
         text= "";
         for (i=rank; i<5; i++)
             //text += ('<span class="fa fa-glass"></span>');
-            text+= ('<img src="/images/EmptyGlass.png" height = 20 class="Rating--Glass Rating--Glass__active">');
+            text+= ('<img src="/images/EmptyGlass.png" height = 20">');
         for (i=0; i<rank; i++)
             //text += ('<span class="fa fa-glass checked"></span>');
-            text+= ('<img src="/images/FullGlass.png" height = 20 class="Rating--Glass ">');
+            text+= ('<img src="/images/FullGlass.png" height = 20">');
         return text;
     }
 
@@ -241,34 +249,36 @@ var map = L.map('map', {
 
     // add button for "registration" on menu
     var btnRegister = document.createElement("BUTTON");
-    btnRegister.innerHTML = 'הרשמה לבתי עסק';
+    btnRegister.innerHTML = 'הרשמה והתחברות לבעלי חנויות';
     btnRegister.style.borderRadius = "12px";
     btnRegister.style.color = "White";
-    btnRegister.style.backgroundColor="#3FB8AF";
-    btnRegister.style.height="60px";
+    btnRegister.style.backgroundColor="#82002e";
+    btnRegister.style.height="80px";
     btnRegister.style.width = "70%";
     btnRegister.style.margin="30px 50px";
     btnRegister.style.fontWeight="bold";
     btnRegister.style.borderColor ="transparent";
     document.getElementById("menu").appendChild(btnRegister);
-    btnRegister.style.fontSize="25px";
+    btnRegister.style.fontSize="22px";
     btnRegister.style.fontFamily = "Calibri Light";
     btnRegister.onclick = function() {
-        // console.log("pressed btn");
     };
-
+    btnRegister.onmouseover = function () {btnRegister.style.backgroundColor="#E24E4E";}
+    btnRegister.onmouseleave = function () {btnRegister.style.backgroundColor="#82002e";}
 
     // add button for "signing in" on menu
     var btnSignIn = document.createElement("BUTTON");
-    btnSignIn.innerHTML = "התחברות לבתי עסק";
+    btnSignIn.innerHTML = "הרשמה והתחברות למשתמשים";
     btnSignIn.style.borderRadius = "12px";
     btnSignIn.style.color = "White";
-    btnSignIn.style.backgroundColor="#3FB8AF";
-    btnSignIn.style.height="60px";
+    btnSignIn.style.backgroundColor="#82002e";
+    btnSignIn.style.height="80px";
     btnSignIn.style.width="70%";
     btnSignIn.style.margin="0px 50px 20px 10px";
     btnSignIn.style.fontWeight="bold";
     btnSignIn.style.borderColor ="transparent";
     document.getElementById("menu").appendChild(btnSignIn);
-    btnSignIn.style.fontSize="25px";
+    btnSignIn.style.fontSize="22px";
     btnSignIn.style.fontFamily = "Calibri Light";
+    btnSignIn.onmouseover = function () {btnSignIn.style.backgroundColor="#E24E4E";}
+    btnSignIn.onmouseleave = function () {btnSignIn.style.backgroundColor="#82002e";}
