@@ -1,0 +1,20 @@
+x-glass-rating {
+    font-family: 'Ionicons';
+    font-size: 60px;
+    display: inline-flex;
+    cursor: pointer;
+} 
+
+ x-glass-rating > .fa-wine-glass::after {
+    content: '\f4e3';
+    color: rgb(0, 0, 0);
+
+}
+
+x-glass-rating > .fa-wine-glass.full::after {
+    content: '\f4e3';
+    color: rgb(142, 9, 57);
+}
+
+
+

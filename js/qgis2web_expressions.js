@@ -756,11 +756,11 @@ function fnc_project_color(values, context) {
 };
 
 
-function exp_label_Stores_eval_expression(context) {
+function exp_label_Stores_1_eval_expression(context) {
     var feature = context.feature;
     if (feature.properties) {
-       return (feature.properties['Name'] + '<br>' + feature.properties['stars']  + ' stars');
+       return (feature.properties['Name'] + '<br>' + feature.properties['Address']);
     } else {
-       return (feature['Name'] + '<br>' + feature['stars']  + ' stars');
+       return (feature['Name'] + '<br>' + feature['Address']);
     }
 }
