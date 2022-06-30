@@ -32,7 +32,7 @@ var map = L.map('map', {
                     <td style="font-size:22px; font-weight:bold;">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                 </tr>\
                 <tr>\
-                    <td colspan="1">' + "<img src=\"images/LocationPin.png\" height=13>" + "   " + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    <td colspan="1">' + "<img src=\"images/LocationPin.png\" height=13>" + " " + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                 </tr>\
                 <tr>\
                     <td style="font-weight:bold">שעות פעילות: </td>\
@@ -80,7 +80,7 @@ var map = L.map('map', {
     map.on('popupopen', function(e) {
         //find the pixel location on the map where the popup anchor is
         var px = map.project(e.popup._latlng);
-    //find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+        //find the height of the popup container, divide by 2, subtract from the Y axis of marker location
         px.y -= e.popup._container.clientHeight/2;
         //pan to new center
         map.panTo(map.unproject(px),{animate: true});

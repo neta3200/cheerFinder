@@ -1,7 +1,5 @@
 
-/* var Filters = {"glasses": "int","open": "str","onspot": "str","pickup": "str","shipping": "str"}; */
 var Filters = {"glasses": "int","onspot": "str","pickup": "str","shipping": "str"};
-
 
 // ---- filter func ---- //
 function filteringFunction() {
@@ -28,6 +26,7 @@ function filteringFunction() {
 						} catch(err){
 						}
 					}
+					
 					if (Filters[key] == "int"){
 						sliderVals =  document.getElementById("div_" + keyS).noUiSlider.get();
 						try{
@@ -49,7 +48,7 @@ function filteringFunction() {
 	  	}
 	})
 }
-	// ------------------------------------- //
+// ------------------------------------- //
 
 ///// --- Label - filter --- ////
 document.getElementById("menu").appendChild(document.createElement("div"));
@@ -58,7 +57,7 @@ filter_label.innerHTML = "מסנני חיפוש";
 filter_label.style.fontSize="35px";
 filter_label.style.fontWeight="bold";
 filter_label.style.color = "#191970";
-filter_label.style.margin="20px 10px";
+filter_label.style.margin="30px 10px";
 document.getElementById("menu").appendChild(filter_label);
 // ------------------------------------- //
 
@@ -67,7 +66,7 @@ document.getElementById("menu").appendChild(filter_label);
 var count;
 var rank_label = document.createElement('div');
 rank_label.innerHTML = '<span></span>';
-rank_label.style.margin="130px 15px 20px 150px";
+rank_label.style.margin="95px 15px 20px 150px";
 document.getElementById("menu").appendChild(rank_label);
 document.getElementById("menu").appendChild(document.createElement("div"));
 var div_glasses = document.createElement("div");
@@ -91,7 +90,7 @@ function wineglassmark(item){
 			document.getElementById((i+1)+subid).style.color="maroon";
 		}
 		else{
-			document.getElementById((i+1)+subid).style.color="grey";
+			document.getElementById((i+1)+subid).style.color="black";
 		}
 	}		
 	sel_glasses.noUiSlider.set([count, "5"]);
@@ -109,59 +108,10 @@ sel_glasses.noUiSlider.on('update', function (values) {
 
 function glassreset(){
 	for(var i=0;i<5;i++) {
-		document.getElementById((i+1)+"one").style.color="grey";
+		document.getElementById((i+1)+"one").style.color="black";
 	}		
 }
 // ------------------------------------- //
-
-
-
-////---- open - filter ---- /////
-/* document.getElementById("menu").appendChild(document.createElement("div"));
-var div_open = document.createElement('div');
-div_open.id = "div_open";
-div_open.className= "filterselect";
-document.getElementById("menu").appendChild(div_open);
-div_open.hidden = true;
-sel_open = document.createElement('select');
-sel_open.multiple = true;
-sel_open.size = 2;
-sel_open.id = "sel_open";
-var open_options_str = "<option value='' unselected></option>";
-sel_open.onchange = function(){filteringFunction()};
-open_options_str  += '<option value="yes">yes</option>';
-open_options_str  += '<option value="no">no</option>';
-sel_open.innerHTML = open_options_str;
-div_open.appendChild(sel_open);
-//create checkbox
-var open_checkbox = document.createElement("INPUT");
-open_checkbox.type = 'checkbox';
-open_checkbox.id = "open_checkbox";
-open_checkbox.style.margin="0px 25px";
-document.getElementById("menu").appendChild(open_checkbox);
-//Action - update
-open_checkbox.onchange = function(){
-	var options = document.getElementById("sel_open").options;
-	if (open_checkbox.checked == true){
-		options[0].selected = false;
-		options[1].selected = true;
-		options[2].selected = false;
-	}
-	else {
-		options[0].selected = false;
-		options[1].selected = true;
-		options[2].selected = true;
-	}
-	filteringFunction();
-};
-div_open.appendChild(sel_open);
-//label
-var open_label = document.createElement('label').appendChild(document.createTextNode('פתוח עכשיו'));
-document.getElementById('menu').appendChild(open_label); */
-// ------------------------------------- //
-
-
-
 
 ////---- onspot - filter ---- /////
 document.getElementById("menu").appendChild(document.createElement("div"));
@@ -169,13 +119,13 @@ var div_onspot = document.createElement('div');
 div_onspot.id = "div_onspot";
 div_onspot.className= "filterselect";
 document.getElementById("menu").appendChild(div_onspot);
+div_onspot.hidden = true;
 sel_onspot = document.createElement('select');
 sel_onspot.multiple = true;
 sel_onspot.size = 2;
 sel_onspot.id = "sel_onspot";
 var onspot_options_str = "<option value='' unselected></option>";
-sel_onspot.onchange = function(){filterFunc()};
-/* (feature.properties['onspot'] !== null ? autolinker.link(feature.properties['onspot'].toLocaleString()):'') */
+sel_onspot.onchange = function(){filteringFunction()};
 onspot_options_str  += '<option value="yes">yes</option>';
 onspot_options_str  += '<option value="no">no</option>';
 sel_onspot.innerHTML = onspot_options_str;
@@ -184,7 +134,7 @@ div_onspot.appendChild(sel_onspot);
 var onspot_checkbox = document.createElement("INPUT");
 onspot_checkbox.type = 'checkbox';
 onspot_checkbox.id = "onspot_checkbox";
-onspot_checkbox.style.margin="0px 25px";
+onspot_checkbox.style.margin="15px 25px";
 document.getElementById("menu").appendChild(onspot_checkbox);
 //Action - update
 onspot_checkbox.onchange = function(){
@@ -201,10 +151,8 @@ onspot_checkbox.onchange = function(){
 	}
 	filteringFunction();
 };
-/* div_open.appendChild(sel_onspot); */
+
 div_onspot.appendChild(sel_onspot);
-
-
 //label
 var onspot_label = document.createElement('label').appendChild(document.createTextNode('אפשרות קניה במקום'));
 document.getElementById('menu').appendChild(onspot_label);
@@ -216,12 +164,13 @@ var div_pickup = document.createElement('div');
 div_pickup.id = "div_pickup";
 div_pickup.className= "filterselect";
 document.getElementById("menu").appendChild(div_pickup);
+div_pickup.hidden = true;
 sel_pickup = document.createElement('select');
 sel_pickup.multiple = true;
 sel_pickup.size = 2;
 sel_pickup.id = "sel_pickup";
 var pickup_options_str = "<option value='' unselected></option>";
-sel_pickup.onchange = function(){filterFunc()};
+sel_pickup.onchange = function(){filteringFunction()};
 pickup_options_str  += '<option value="yes">yes</option>';
 pickup_options_str  += '<option value="no">no</option>';
 sel_pickup.innerHTML = pickup_options_str;
@@ -230,7 +179,7 @@ div_pickup.appendChild(sel_pickup);
 var pickup_checkbox = document.createElement("INPUT");
 pickup_checkbox.type = 'checkbox';
 pickup_checkbox.id = "pickup_checkbox";
-pickup_checkbox.style.margin="0px 25px";
+pickup_checkbox.style.margin="15px 25px";
 document.getElementById("menu").appendChild(pickup_checkbox);
 //Action - update
 pickup_checkbox.onchange = function(){
@@ -247,7 +196,6 @@ pickup_checkbox.onchange = function(){
 	}
 	filteringFunction();
 };
-/* div_open.appendChild(sel_pickup); */
 div_onspot.appendChild(sel_pickup);
 //label
 var pickup_label = document.createElement('label').appendChild(document.createTextNode('אפשרות איסוף הזמנה'));
@@ -257,18 +205,19 @@ document.getElementById('menu').appendChild(pickup_label);
 
 
 
-	////---- shipping - filter ---- /////
+////---- shipping - filter ---- /////
 document.getElementById("menu").appendChild(document.createElement("div"));
 var div_shipping = document.createElement('div');
 div_shipping.id = "div_shipping";
 div_shipping.className= "filterselect";
 document.getElementById("menu").appendChild(div_shipping);
+div_shipping.hidden = true;
 sel_shipping = document.createElement('select');
 sel_shipping.multiple = true;
 sel_shipping.size = 2;
 sel_shipping.id = "sel_shipping";
 var shipping_options_str = "<option value='' unselected></option>";
-sel_shipping.onchange = function(){filterFunc()};
+sel_shipping.onchange = function(){filteringFunction()};
 shipping_options_str  += '<option value="yes">yes</option>';
 shipping_options_str  += '<option value="no">no</option>';
 sel_shipping.innerHTML = shipping_options_str;
@@ -278,7 +227,7 @@ var shipping_checkbox = document.createElement("INPUT");
 shipping_checkbox.type = 'checkbox';
 shipping_checkbox.id = "shipping_checkbox";
 shipping_checkbox.value = 'shipping';
-shipping_checkbox.style.margin="0px 25px";
+shipping_checkbox.style.margin="15px 25px";
 document.getElementById("menu").appendChild(shipping_checkbox);
 //Action - update
 shipping_checkbox.onchange = function(){
@@ -295,7 +244,7 @@ shipping_checkbox.onchange = function(){
 	}
 	filteringFunction();
 };
-/* div_open.appendChild(sel_shipping); */
+
 div_onspot.appendChild(sel_shipping);
 //label
 var shipping_label = document.createElement('label').appendChild(document.createTextNode('אפשרות משלוח'));
@@ -306,7 +255,6 @@ document.getElementById('menu').appendChild(shipping_label);
 
 // General - design
 document.getElementById('menu').style.fontSize="25px";
-//document.getElementById('menu').style.fontFamily = "cursive";
 document.getElementById('menu').style.fontFamily = "Calibri Light";
 
 // Reset filters
@@ -316,21 +264,17 @@ btnResetFilters.innerHTML = "אפס סינונים";
 btnResetFilters.style.borderRadius = "12px";
 btnResetFilters.style.color = "White";
 btnResetFilters.style.backgroundColor="#82002e";
-btnResetFilters.style.height="35px";
+btnResetFilters.style.height="40px";
 btnResetFilters.style.width="150px";
 btnResetFilters.style.margin="20px 20px";
+btnResetFilters.style.fontWeight="bold";
 btnResetFilters.style.borderColor ="transparent";
 document.getElementById("menu").appendChild(btnResetFilters);
-btnResetFilters.style.fontSize="23px";
+btnResetFilters.style.fontSize="22px";
 btnResetFilters.style.fontFamily = "Calibri Light";
 btnResetFilters.onmouseover = function () {btnResetFilters.style.backgroundColor="#E24E4E";}
 btnResetFilters.onmouseleave = function () {btnResetFilters.style.backgroundColor="#82002e";}
 btnResetFilters.onclick = function() {
-	//reset open
-	/* open_checkbox.checked = false;
-	var options_open = document.getElementById("sel_open").options;
-	options_open[1].selected = true;
-	options_open[2].selected = true; */
 
 	//reset onspot
 	onspot_checkbox.checked = false;
